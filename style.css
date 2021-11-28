@@ -88,3 +88,12 @@ button.choice:hover
     text-align: center;
     margin-top: -90px;
 }
+
+#restart button
+{
+    border: 2px dashed black;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+}

@@ -60,7 +60,7 @@ function Game(player)
         {
             _score.classList.add("fadein");
         
-            _result = _playerScore > _cpuScore ? "You Win!" : "You Lose!";
+            _result = _playerScore > _cpuScore ? "You Win!" : _playerScore == _cpuScore ? "Tie!" : "You Lose!";
     
             _score.addEventListener("animationend", () => {
                 _score.innerHTML = _result;
