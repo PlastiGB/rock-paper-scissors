@@ -7,6 +7,12 @@ let _cpuScore = 0;
 let _result = 0;
 
 let _roundCounter = 0;
+let _score;
+
+window.onload = function(){
+    _score = document.getElementById("score");
+}
+
 
 let RPS = {
     "Rock": 1,
@@ -39,18 +45,30 @@ function Game(player)
             case 1:
                 _playerScore += 1;
 
+                _score.innerHTML = `${_cpuScore} - ${_playerScore}`;
                 console.log(`You Win! ${_playerRPS} beats ${_cpuRPS}`);
                 break;
         case 2:
                 _cpuScore += 1;
+
+                _score.innerHTML = `${_cpuScore} - ${_playerScore}`;
                 console.log(`You Lose! ${_cpuRPS} beats ${_playerRPS}`);
                 break;
         }
-    }
-    else
-    {
-        _result = _playerScore > _cpuScore ? "You Win!" : "You Lose!";
-        console.log(_result);
+
+        if(_roundCounter == 5)
+        {
+            _score.classList.add("fadein");
+        
+            _result = _playerScore > _cpuScore ? "You Win!" : "You Lose!";
+    
+            _score.addEventListener("animationend", () => {
+                _score.innerHTML = _result;
+                _score.classList.add("fadeout");
+            });
+            
+            console.log(_result);
+        }
     }
 }
 
@@ -105,4 +123,9 @@ function cpuRandomGen(cpuRPS)
             cpuRPS == 2 ? "Paper" : "Scissors";
 
     return cpuRPS;
+}
+
+function Restart()
+{
+    window.location.reload();
 }

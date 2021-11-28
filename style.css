@@ -13,7 +13,8 @@ body
     gap: 100px;
 }
 
-#header
+#header,
+#score
 {
     text-align: center;
 
@@ -40,7 +41,29 @@ body
     box-shadow: 0 0 30px 10px red;
 }
 
-button
+#score.fadein
+{
+    animation: fadein linear 1s;
+}
+
+@keyframes fadein
+{
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+#score.fadeout
+{
+    animation: fadeout linear 1s;
+}
+
+@keyframes fadeout
+{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+button.choice
 {
     width: 130px;
     height: 130px;
@@ -54,8 +77,14 @@ button
     transition: 0.3s ease-in-out;
 }
 
-button:hover
+button.choice:hover
 {
     transform: scale(1.1);
-    box-shadow: 0 0 30px  white;
+    box-shadow: 0 0 30px 5px  lightgreen;
+}
+
+#restart
+{
+    text-align: center;
+    margin-top: -90px;
 }
